@@ -1,21 +1,38 @@
-const express = require('express');
-const { Server } = require("ws");
-const http = require("http");
+import express from "express";
+import http from "http";
+import WebSocket, { WebSocketServer } from "ws";
 
 const app = express();
 const server = http.createServer(app);
-const wss = new Server({ server });
+
+const wss = new WebSocketServer({ server });
 
 app.use(express.static("public"));
 
-wss.on('connection', (ws) => {
-    console.log('Nový klient připojen');
+const metroWS = new WebSocket("ws://localhost:8080");
 
-    ws.send(JSON.stringify({ msg: 'Vítej na live metru!' }));
-
-    ws.on('message', (message) => {
-        console.log('Zpráva od klienta:', message.toString());
-    });
+metroWS.on("open", () => {
+    console.log("Připojeno k externímu metro WebSocket serveru.");
 });
 
-server.listen(3001, () => console.log("Listening on port 3001 link 10.122.241.4:3001"));
+metroWS.on("message", (data) => {
+    try {
+        const json = JSON.parse(data.toString());
+        console.log("Data z metra:", json);
+
+        wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify(json));
+            }
+        });
+    } catch (err) {
+        console.error("Neplatný JSON:", err);
+    }
+});
+
+wss.on("connection", (ws) => {
+    console.log("Nový klient připojen");
+    ws.send(JSON.stringify({ msg: "Vítej na live metru!" }));
+});
+
+server.listen(3001, () => console.log("Listening on port 3001"));

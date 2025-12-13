@@ -39,8 +39,12 @@ export function all_metro(){
         return coordToXY(lat, lon);
     });
 
+    const finalData = { A, B, C}
+
     fs.writeFileSync("xy_Metro.json", JSON.stringify({A, B, C}, null, 2));
     console.log("Saved xy_Metro.json with pixel coordinates of metro lines");
+
+    return finalData
 }
 
 export async function fetchMetroCoordinates() {

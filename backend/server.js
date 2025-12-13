@@ -1,13 +1,31 @@
 import {fetchMetroCoordinates, all_metro} from './functions.js'
 import express from "express";
 import http from "http";
-import { WebSocketServer } from "ws";
+import { WebSocketServer , WebSocket} from "ws";
 import fs from "fs";
+
+const app = express();
+app.use(express.static('public'));
+
+const server = http.createServer(app);
+const wss = new WebSocketServer({ server });
+
+function broadcast(data) {
+    const json = JSON.stringify(data);
+    wss.clients.forEach(client => {
+        if (client.readyState === WebSocket.OPEN) {
+            client.send(json);
+        }
+    });
+}
 
 async function updateLoop() {
     try {
         await fetchMetroCoordinates();
-        all_metro();
+
+        const newData = all_metro();
+
+        broadcast(newData);
     } catch (err) {
         console.error(err);
     } finally {
@@ -17,16 +35,16 @@ async function updateLoop() {
 
 updateLoop();
 
-const app = express();
-app.use(express.static('public'));
-
-const server = http.createServer(app);
-const wss = new WebSocketServer({ server });
-
 wss.on('connection', ws => {
     console.log('WS: client connected');
-    const data = fs.readFileSync("xy_Metro.json", "utf-8");
-    ws.send(data);
+    try {
+        if (fs.existsSync("xy_Metro.json")) {
+            const data = fs.readFileSync("xy_Metro.json", "utf-8");
+            ws.send(data);
+        }
+    } catch (e) {
+        console.error("Chyba při prvním odeslání:", e);
+    }
 });
 
 

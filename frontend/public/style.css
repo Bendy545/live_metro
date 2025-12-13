@@ -1,39 +1,47 @@
 body {
-    font-family: "Helvetica", "Arial", sans-serif;
+    font-family: sans-serif;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    height: 100vh;
-}
-main {
-    display: flex;
-    justify-content: center;
-}
-
-header {
-    text-align: center;
-    background-color: lightblue;
-    border-radius: 30px;
+    align-items: center;
+    background-color: #f0f0f0;
 }
 
 .map-container {
     position: relative;
     width: 1024px;
     height: 724px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    overflow: hidden;
 }
 
 .map-image {
-    display: block;
     width: 100%;
     height: 100%;
+    display: block;
 }
 
-.overlay {
+#metro-layer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0);
+    pointer-events: none;
 }
 
+.train {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    transition: top 10s linear, left 10s linear;
+}
+
+.line-A { background-color: #00A558; }
+.line-B { background-color: #FCD116; }
+.line-C { background-color: #E30613; }
