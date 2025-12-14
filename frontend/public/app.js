@@ -107,14 +107,6 @@ function createTrainElement(coord, lineClass) {
 }
 
 function animateTrainTo(element, newCoord) {
-    // Get current position
-    const currentX = parseFloat(element.style.left) || 0;
-    const currentY = parseFloat(element.style.top) || 0;
-
-    const distance = Math.sqrt(
-        Math.pow(newCoord.x - currentX, 2) +
-        Math.pow(newCoord.y - currentY, 2)
-    );
 
     const duration = 10;
 
