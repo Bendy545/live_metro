@@ -58,10 +58,9 @@ export async function fetchMetroCoordinates() {
         const dataA = await resA.json();
         const dataB = await resB.json();
         const dataC = await resC.json();
-
-        const coordinatesA = dataA.features?.map(f => f.geometry.coordinates) ?? [];
-        const coordinatesB = dataB.features?.map(f => f.geometry.coordinates) ?? [];
-        const coordinatesC = dataC.features?.map(f => f.geometry.coordinates) ?? [];
+        const coordinatesA = dataA.features?.map(f => ({coordinates: f.geometry.coordinates, id: f.properties.trip.gtfs.trip_id, heading:f.properties.trip.gtfs.trip_headsign})) ?? {};
+        const coordinatesB = dataB.features?.map(f => ({coordinates: f.geometry.coordinates, id: f.properties.trip.gtfs.trip_id, heading:f.properties.trip.gtfs.trip_headsign})) ?? {};
+        const coordinatesC = dataC.features?.map(f => ({coordinates: f.geometry.coordinates, id: f.properties.trip.gtfs.trip_id, heading:f.properties.trip.gtfs.trip_headsign})) ?? {};
 
         fs.writeFileSync("metro_A.json", JSON.stringify(coordinatesA, null, 2));
         fs.writeFileSync("metro_B.json", JSON.stringify(coordinatesB, null, 2));
