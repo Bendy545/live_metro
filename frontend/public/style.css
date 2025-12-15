@@ -20,6 +20,8 @@ body {
     width: 100%;
     height: 100%;
     display: block;
+    z-index: 1;
+    pointer-events: none;
 }
 
 #metro-layer {
@@ -29,6 +31,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: 10;
 }
 
 .train {
@@ -39,8 +42,27 @@ body {
     border-radius: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    z-index: 20;
+    pointer-events: auto;
 }
 
 .line-A { background-color: #00A558; }
 .line-B { background-color: #FCD116; }
 .line-C { background-color: #E30613; }
+
+.tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 1000;
+    white-space: nowrap;
+    transform: translateY(-50%);
+}
+
+.hidden {
+    display: none;
+}

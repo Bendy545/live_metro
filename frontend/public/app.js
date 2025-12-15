@@ -1,11 +1,13 @@
 const ws = new WebSocket(`ws://${window.location.host}`);
 
 const metroLayer = document.getElementById("metro-layer");
+const tooltip = document.getElementById("tooltip");
+
 
 const trains = {
-    A: [],
-    B: [],
-    C: []
+    A: new Map(),
+    B: new Map(),
+    C: new Map()
 };
 
 ws.onopen = () => {
@@ -38,54 +40,32 @@ function updateMetroPositions(data) {
     }
 }
 
-function calculateDistance(pos1, pos2) {
-    return Math.sqrt(
-        Math.pow(pos1.x - pos2.x, 2) +
-        Math.pow(pos1.y - pos2.y, 2)
-    );
-}
-
 function updateLine(lineName, newPositions, lineClass) {
-    const currentTrains = trains[lineName];
-    const usedNewPositions = new Set();
-    const usedCurrentTrains = new Set();
+    const trainsMap = trains[lineName];
+    trainsMap.forEach(train => train.seen = false);
+    newPositions.forEach(pos => {
+        const id = pos.id;
 
-    currentTrains.forEach((train, currentIndex) => {
-        let closestIndex = -1;
-        let closestDistance = Infinity;
+        if (trainsMap.has(id)) {
+            const train = trainsMap.get(id);
+            animateTrainTo(train.element, pos);
+            train.position = pos;
+            train.seen = true;
+        } else {
 
-        newPositions.forEach((newPos, newIndex) => {
-            if (usedNewPositions.has(newIndex)) return;
-
-            const distance = calculateDistance(train.position, newPos);
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestIndex = newIndex;
-            }
-        });
-
-        if (closestIndex !== -1 && closestDistance < 200) {
-            usedNewPositions.add(closestIndex);
-            usedCurrentTrains.add(currentIndex);
-            animateTrainTo(train.element, newPositions[closestIndex]);
-            train.position = newPositions[closestIndex];
+            const el = createTrainElement(pos, lineClass);
+            trainsMap.set(id, {
+                element: el,
+                position: pos,
+                seen: true
+            });
         }
     });
 
-    for (let i = currentTrains.length - 1; i >= 0; i--) {
-        if (!usedCurrentTrains.has(i)) {
-            currentTrains[i].element.remove();
-            currentTrains.splice(i, 1);
-        }
-    }
-
-    newPositions.forEach((newPos, index) => {
-        if (!usedNewPositions.has(index)) {
-            const trainElement = createTrainElement(newPos, lineClass);
-            currentTrains.push({
-                element: trainElement,
-                position: newPos
-            });
+    trainsMap.forEach((train, id) => {
+        if (!train.seen) {
+            train.element.remove();
+            trainsMap.delete(id);
         }
     });
 }
@@ -93,16 +73,31 @@ function updateLine(lineName, newPositions, lineClass) {
 function createTrainElement(coord, lineClass) {
     const train = document.createElement("div");
 
-    train.classList.add("train");
-    train.classList.add(lineClass);
+    train.classList.add("train", lineClass);
 
     train.style.left = `${coord.x}px`;
     train.style.top = `${coord.y}px`;
 
-    train.title = `X: ${coord.x}, Y: ${coord.y}`;
+    train.addEventListener("mouseenter", () => {
+        const rect = train.getBoundingClientRect();
+
+        tooltip.innerHTML = `
+            <strong>${coord.heading}</strong><br>
+            ID: ${coord.id}
+        `;
+
+        tooltip.style.left = `${rect.right + 6}px`;
+        tooltip.style.top = `${rect.top + rect.height / 2}px`;
+
+        tooltip.classList.remove("hidden");
+    });
+
+    train.addEventListener("mouseleave", () => {
+        tooltip.classList.add("hidden");
+    });
+
 
     metroLayer.appendChild(train);
-
     return train;
 }
 

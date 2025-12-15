@@ -29,14 +29,37 @@ export function all_metro(){
     const coordinatesB= JSON.parse(rawDataB);
     const coordinatesC = JSON.parse(rawDataC);
 
-    const A = coordinatesA.map(([lon, lat]) => {
-        return coordToXY(lat, lon);
+    const A = coordinatesA.map(item => {
+        const [lon, lat] = item.coordinates;
+        const {x, y} = coordToXY(lat, lon);
+        return {
+            x,
+            y,
+            id: item.id,
+            heading: item.heading
+        };
     });
-    const B = coordinatesB.map(([lon, lat]) => {
-        return coordToXY(lat, lon);
+
+    const B = coordinatesB.map(item => {
+        const [lon, lat] = item.coordinates;
+        const {x, y} = coordToXY(lat, lon);
+        return {
+            x,
+            y,
+            id: item.id,
+            heading: item.heading
+        };
     });
-    const C = coordinatesC.map(([lon, lat]) => {
-        return coordToXY(lat, lon);
+
+    const C = coordinatesC.map(item => {
+        const [lon, lat] = item.coordinates;
+        const {x, y} = coordToXY(lat, lon);
+        return {
+            x,
+            y,
+            id: item.id,
+            heading: item.heading
+        };
     });
 
     const finalData = { A, B, C}
