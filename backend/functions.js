@@ -98,5 +98,3 @@ export async function fetchMetroCoordinates() {
         console.error("Error fetching data:", err);
     }
 }
-
-

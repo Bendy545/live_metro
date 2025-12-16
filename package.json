@@ -1,6 +1,7 @@
 {
   "name": "live_metro",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "frontend/server.js",
   "scripts": {

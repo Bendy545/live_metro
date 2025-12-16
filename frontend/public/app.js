@@ -10,6 +10,25 @@ const trains = {
     C: new Map()
 };
 
+const stations = {
+    A: new Map(),
+    B: new Map(),
+    C: new Map()
+}
+
+fetch("xy_stations.json")
+    .then(res => {
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+    })
+    .then(data => {
+        renderStations(data);
+        console.log("Stanice načteny a vykresleny");
+    })
+    .catch(err => console.error("Chyba při načítání stanic:", err));
+
 ws.onopen = () => {
     console.log("Připojeno k WebSocket serveru");
 };
@@ -70,6 +89,41 @@ function updateLine(lineName, newPositions, lineClass) {
     });
 }
 
+function renderStations(data) {
+    Object.keys(data).forEach(line => {
+        const lineClass = `line-${line}`;
+        data[line].forEach(station => {
+            const el = createStationElement(station, lineClass);
+            stations[line].set(station.station, {
+                element: el,
+                data: station
+            });
+        });
+    });
+}
+
+function createStationElement(station, lineClass) {
+    const el = document.createElement("div");
+
+    el.classList.add("station", lineClass);
+    el.style.left = `${station.x}px`;
+    el.style.top = `${station.y}px`;
+
+    el.addEventListener("mouseenter", () => {
+        const rect = el.getBoundingClientRect(); // <-- změna zde
+        tooltip.innerHTML = `<strong>${station.station}</strong>`;
+        tooltip.style.left = `${rect.right + 6}px`;
+        tooltip.style.top = `${rect.top + rect.height / 2}px`;
+        tooltip.classList.remove("hidden");
+    });
+
+    el.addEventListener("mouseleave", () => {
+        tooltip.classList.add("hidden");
+    });
+
+    metroLayer.appendChild(el);
+    return el;
+}
 function createTrainElement(coord, lineClass) {
     const train = document.createElement("div");
 
@@ -111,3 +165,4 @@ function animateTrainTo(element, newCoord) {
 
     element.title = `X: ${newCoord.x}, Y: ${newCoord.y}`;
 }
+

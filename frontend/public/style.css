@@ -46,6 +46,18 @@ body {
     pointer-events: auto;
 }
 
+.station {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    z-index: 15;
+    border: solid black 1px;
+    border-radius: 25%;
+}
+
 .line-A { background-color: #00A558; }
 .line-B { background-color: #FCD116; }
 .line-C { background-color: #E30613; }
