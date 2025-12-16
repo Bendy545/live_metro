@@ -1,0 +1,313 @@
+{
+  "A": [
+    {
+      "station": "Nemocnice Motol",
+      "x": 193,
+      "y": 357
+    },
+    {
+      "station": "Petřiny",
+      "x": 192,
+      "y": 282
+    },
+    {
+      "station": "Nádraží Veleslavín",
+      "x": 207,
+      "y": 229
+    },
+    {
+      "station": "Bořislavka",
+      "x": 228,
+      "y": 201
+    },
+    {
+      "station": "Dejvická",
+      "x": 366,
+      "y": 192
+    },
+    {
+      "station": "Hradčanská",
+      "x": 403,
+      "y": 212
+    },
+    {
+      "station": "Malostranská",
+      "x": 420,
+      "y": 253
+    },
+    {
+      "station": "Staroměstská",
+      "x": 451,
+      "y": 274
+    },
+    {
+      "station": "Můstek",
+      "x": 474,
+      "y": 298
+    },
+    {
+      "station": "Muzeum",
+      "x": 496,
+      "y": 333
+    },
+    {
+      "station": "Náměstí Míru",
+      "x": 522,
+      "y": 360
+    },
+    {
+      "station": "Jiřího z Poděbrad",
+      "x": 568,
+      "y": 344
+    },
+    {
+      "station": "Flora",
+      "x": 606,
+      "y": 336
+    },
+    {
+      "station": "Želivského",
+      "x": 655,
+      "y": 340
+    },
+    {
+      "station": "Strašnická",
+      "x": 710,
+      "y": 371
+    },
+    {
+      "station": "Skalka",
+      "x": 768,
+      "y": 402
+    },
+    {
+      "station": "Depo Hostivař",
+      "x": 795,
+      "y": 362
+    }
+  ],
+  "B": [
+    {
+      "station": "Zličín",
+      "x": 10,
+      "y": 505
+    },
+    {
+      "station": "Stodůlky",
+      "x": 60,
+      "y": 545
+    },
+    {
+      "station": "Luka",
+      "x": 116,
+      "y": 558
+    },
+    {
+      "station": "Lužiny",
+      "x": 148,
+      "y": 554
+    },
+    {
+      "station": "Hůrka",
+      "x": 189,
+      "y": 526
+    },
+    {
+      "station": "Nové Butovice",
+      "x": 221,
+      "y": 521
+    },
+    {
+      "station": "Jinonice",
+      "x": 289,
+      "y": 499
+    },
+    {
+      "station": "Radlická",
+      "x": 355,
+      "y": 470
+    },
+    {
+      "station": "Smíchovské nádraží",
+      "x": 421,
+      "y": 453
+    },
+    {
+      "station": "Anděl",
+      "x": 402,
+      "y": 391
+    },
+    {
+      "station": "Karlovo náměstí",
+      "x": 452,
+      "y": 360
+    },
+    {
+      "station": "Národní třída",
+      "x": 466,
+      "y": 322
+    },
+    {
+      "station": "Můstek",
+      "x": 474,
+      "y": 298
+    },
+    {
+      "station": "Náměstí Republiky",
+      "x": 493,
+      "y": 276
+    },
+    {
+      "station": "Florenc",
+      "x": 528,
+      "y": 261
+    },
+    {
+      "station": "Křižíkova",
+      "x": 571,
+      "y": 247
+    },
+    {
+      "station": "Invalidovna",
+      "x": 612,
+      "y": 216
+    },
+    {
+      "station": "Palmovka",
+      "x": 651,
+      "y": 177
+    },
+    {
+      "station": "Českomoravská",
+      "x": 709,
+      "y": 157
+    },
+    {
+      "station": "Vysočanská",
+      "x": 748,
+      "y": 126
+    },
+    {
+      "station": "Kolbenova",
+      "x": 797,
+      "y": 130
+    },
+    {
+      "station": "Hloubětín",
+      "x": 873,
+      "y": 152
+    },
+    {
+      "station": "Rajská zahrada",
+      "x": 956,
+      "y": 154
+    },
+    {
+      "station": "Černý Most",
+      "x": 1014,
+      "y": 139
+    }
+  ],
+  "C": [
+    {
+      "station": "Letňany",
+      "x": 798,
+      "y": 38
+    },
+    {
+      "station": "Prosek",
+      "x": 735,
+      "y": 79
+    },
+    {
+      "station": "Střížkov",
+      "x": 704,
+      "y": 22
+    },
+    {
+      "station": "Ládví",
+      "x": 634,
+      "y": 26
+    },
+    {
+      "station": "Kobylisy",
+      "x": 580,
+      "y": 38
+    },
+    {
+      "station": "Nádraží Holešovice",
+      "x": 529,
+      "y": 138
+    },
+    {
+      "station": "Vltavská",
+      "x": 523,
+      "y": 201
+    },
+    {
+      "station": "Florenc",
+      "x": 528,
+      "y": 261
+    },
+    {
+      "station": "Hlavní nádraží",
+      "x": 511,
+      "y": 303
+    },
+    {
+      "station": "Muzeum",
+      "x": 496,
+      "y": 333
+    },
+    {
+      "station": "I. P. Pavlova",
+      "x": 491,
+      "y": 366
+    },
+    {
+      "station": "Vyšehrad",
+      "x": 502,
+      "y": 424
+    },
+    {
+      "station": "Pražského povstání",
+      "x": 511,
+      "y": 482
+    },
+    {
+      "station": "Pankrác",
+      "x": 526,
+      "y": 516
+    },
+    {
+      "station": "Budějovická",
+      "x": 560,
+      "y": 563
+    },
+    {
+      "station": "Kačerov",
+      "x": 594,
+      "y": 585
+    },
+    {
+      "station": "Roztyly",
+      "x": 661,
+      "y": 607
+    },
+    {
+      "station": "Chodov",
+      "x": 705,
+      "y": 645
+    },
+    {
+      "station": "Opatov",
+      "x": 767,
+      "y": 667
+    },
+    {
+      "station": "Háje",
+      "x": 840,
+      "y": 653
+    }
+  ]
+}
