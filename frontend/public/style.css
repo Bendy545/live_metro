@@ -36,14 +36,30 @@ body {
 
 .train {
     position: absolute;
-    width: 12px;
-    height: 12px;
-    border: 2px solid white;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    width: 14px;
+    height: 20px;
+    background-color: #000000;
+    border-radius: 4px;
     z-index: 20;
     pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.train::after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 30%;
+    background-color: white;
+    border-radius: 2px 2px 1px 1px;
+    margin-top: 2px;
+}
+
+.line-A.train, .line-B.train, .line-C.train {
+    background-color: #000000;
 }
 
 .station {
@@ -54,7 +70,7 @@ body {
     transform: translate(-50%, -50%);
     pointer-events: auto;
     z-index: 15;
-    border: solid black 1px;
+    border: solid black 3px;
     border-radius: 25%;
 }
 

@@ -1,1 +1,146 @@
-{}
+[
+  {
+    "coordinates": [
+      14.347378,
+      50.082611
+    ],
+    "id": "991_9427_250901",
+    "heading": "Nemocnice Motol"
+  },
+  {
+    "coordinates": [
+      14.417581,
+      50.088116
+    ],
+    "id": "991_1381_250901",
+    "heading": "Depo Hostivař"
+  },
+  {
+    "coordinates": [
+      14.347815,
+      50.081795
+    ],
+    "id": "991_1446_250901",
+    "heading": "Depo Hostivař"
+  },
+  {
+    "coordinates": [
+      14.443518,
+      50.075464
+    ],
+    "id": "991_9592_250901",
+    "heading": "Nemocnice Motol"
+  },
+  {
+    "coordinates": [
+      14.403233,
+      50.097544
+    ],
+    "id": "991_9409_250901",
+    "heading": "Nemocnice Motol"
+  },
+  {
+    "coordinates": [
+      14.348625,
+      50.095901
+    ],
+    "id": "991_8584_250901",
+    "heading": "Skalka"
+  },
+  {
+    "coordinates": [
+      14.430313,
+      50.080614
+    ],
+    "id": "991_9611_250901",
+    "heading": "Nemocnice Motol"
+  },
+  {
+    "coordinates": [
+      14.473967,
+      50.078583
+    ],
+    "id": "991_8627_250901",
+    "heading": "Skalka"
+  },
+  {
+    "coordinates": [
+      14.380505,
+      50.099748
+    ],
+    "id": "991_1562_250901",
+    "heading": "Depo Hostivař"
+  },
+  {
+    "coordinates": [
+      14.491658,
+      50.072475
+    ],
+    "id": "991_1403_250901",
+    "heading": "Depo Hostivař"
+  },
+  {
+    "coordinates": [
+      14.348501,
+      50.096007
+    ],
+    "id": "991_9646_250901",
+    "heading": "Nemocnice Motol"
+  },
+  {
+    "coordinates": [
+      14.375708,
+      50.099548
+    ],
+    "id": "991_9538_250901",
+    "heading": "Nemocnice Motol"
+  },
+  {
+    "coordinates": [
+      14.43154,
+      50.079413
+    ],
+    "id": "991_8551_250901",
+    "heading": "Skalka"
+  },
+  {
+    "coordinates": [
+      14.417708,
+      50.088309
+    ],
+    "id": "991_9559_250901",
+    "heading": "Nemocnice Motol"
+  },
+  {
+    "coordinates": [
+      14.48908,
+      50.073821
+    ],
+    "id": "991_9550_250901",
+    "heading": "Nemocnice Motol"
+  },
+  {
+    "coordinates": [
+      14.442197,
+      50.075213
+    ],
+    "id": "991_1425_250901",
+    "heading": "Depo Hostivař"
+  },
+  {
+    "coordinates": [
+      14.464401,
+      50.078595
+    ],
+    "id": "991_9473_250901",
+    "heading": "Nemocnice Motol"
+  },
+  {
+    "coordinates": [
+      14.403122,
+      50.097342
+    ],
+    "id": "991_8652_250901",
+    "heading": "Skalka"
+  }
+]

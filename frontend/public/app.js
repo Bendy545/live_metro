@@ -156,13 +156,33 @@ function createTrainElement(coord, lineClass) {
 }
 
 function animateTrainTo(element, newCoord) {
-
     const duration = 10;
 
-    element.style.transition = `left ${duration}s linear, top ${duration}s linear`;
+    const currentX = parseFloat(element.style.left) || 0;
+    const currentY = parseFloat(element.style.top) || 0;
+
+    const dx = newCoord.x - currentX;
+    const dy = newCoord.y - currentY;
+
+    if (dx !== 0 || dy !== 0) {
+        let targetAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+
+        if (!element.dataset.lastAngle) {
+            element.dataset.lastAngle = targetAngle;
+        }
+
+        let prevAngle = parseFloat(element.dataset.lastAngle);
+
+        while (targetAngle - prevAngle > 180) targetAngle -= 360;
+        while (targetAngle - prevAngle < -180) targetAngle += 360;
+
+        element.style.transform = `translate(-50%, -50%) rotate(${targetAngle}deg)`;
+        element.dataset.lastAngle = targetAngle;
+    }
+
+    element.style.transition = `left ${duration}s linear, top ${duration}s linear, transform ${duration}s linear`;
+
     element.style.left = `${newCoord.x}px`;
     element.style.top = `${newCoord.y}px`;
-
-    element.title = `X: ${newCoord.x}, Y: ${newCoord.y}`;
 }
 
