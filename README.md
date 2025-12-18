@@ -1,8 +1,8 @@
 # Live Metro Prague 
 
 Web application displaying **real-time positions of Prague metro trains**
-(lines **A, B, C**) on a map using live data from the **Golemio API**.
-
+(lines **A, B, C**) on a map using live data from the **Golemio API**.  
+![Showcase](img/ukazka.png)
 ## Features
 - Real-time metro train tracking
 - Lines A, B and C
